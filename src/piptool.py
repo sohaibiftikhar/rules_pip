@@ -74,7 +74,7 @@ def repository_name(repo_prefix, name, version, python_version):
 
     """
     canonical = "__{}__{}_{}".format(python_version, name, version)
-    return f"{repo_prefix}{clean_name(canonical)}"
+    return "{}{}".format(repo_prefix, clean_name(canonical))
 
 
 def whl_library(name, extras, repo_name, pip_repo_name, python_interpreter, timeout):
@@ -144,7 +144,7 @@ def main():
     parser.add_argument(
         "--repo-prefix",
         action="store",
-        help=("The prefix to add to the reposuitory name for bazel."),
+        help=("The prefix to add to the repository name for bazel."),
         type=str,
         required=True,
     )
